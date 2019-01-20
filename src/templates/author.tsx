@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import styled from '@emotion/styled'
-import { css } from 'emotion'
+import styled from '@emotion/styled';
+import { css } from 'emotion';
 
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -117,7 +117,15 @@ interface AuthorTemplateProps {
 
 const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
   const author = props.data.authorYaml;
-  const { edges, totalCount } = props.data.allMarkdownRemark;
+  
+  const edges = props.data.allMarkdownRemark.edges.filter(
+    (edge) => {
+      const isDraft = (edge.node.frontmatter.draft !== true ||
+        process.env.NODE_ENV === 'development')
+      return isDraft && edge.node.frontmatter.author && edge.node.frontmatter.author.id === author.id
+    }
+  );
+  const totalCount = edges.length;
 
   return (
     <IndexLayout>
@@ -136,12 +144,18 @@ const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${author.id} - ${config.title}`} />
         <meta name="twitter:url" content={config.siteUrl + props.pathContext.slug} />
-        {config.twitter && <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[1]}`} />}
-        {config.twitter &&
-        <meta
-          name="twitter:creator"
-          content={`@${config.twitter.split('https://twitter.com/')[1]}`}
-        />}
+        {config.twitter && (
+          <meta
+            name="twitter:site"
+            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+          />
+        )}
+        {config.twitter && (
+          <meta
+            name="twitter:creator"
+            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+          />
+        )}
       </Helmet>
       <Wrapper>
         <header
@@ -254,10 +268,7 @@ const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
           <div className={`${inner}`}>
             <div className={`${PostFeed} ${PostFeedRaise}`}>
               {edges.map(({ node }) => {
-                if (node.frontmatter.author && node.frontmatter.author.id === author.id) {
-                  return <PostCard key={node.fields.slug} post={node} />;
-                }
-                return null;
+                return <PostCard key={node.fields.slug} post={node} />;
               })}
             </div>
           </div>
@@ -297,7 +308,6 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(limit: 2000, sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
       edges {
         node {
           excerpt
@@ -306,6 +316,7 @@ export const pageQuery = graphql`
             title
             tags
             date
+            draft
             image {
               childImageSharp {
                 fluid(maxWidth: 3720) {
