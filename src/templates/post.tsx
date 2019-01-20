@@ -110,6 +110,16 @@ const DateDivider = styled.span`
   margin: 0 6px 1px;
 `;
 
+const ReadingTime = styled.span`
+  flex-shrink: 0;
+  color: ${colors.midgrey};
+  font-size: 1.2rem;
+  line-height: 33px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+`;
+
 const ReadNextFeed = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -283,6 +293,7 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
                     )}
                 </PostFullMeta>
                 <PostFullTitle>{post.frontmatter.title}</PostFullTitle>
+                <ReadingTime>{post.timeToRead} min read</ReadingTime>
               </PostFullHeader>
 
               {post.frontmatter.image && (
@@ -329,7 +340,7 @@ export default PageTemplate;
 
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
-    logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+    logo: file(relativePath: { eq: "img/hd92_logo.png" }) {
       childImageSharp {
         fixed {
           ...GatsbyImageSharpFixed

@@ -8,6 +8,9 @@ import { SocialLink } from '../../styles/shared';
 import config from '../../website-config';
 import Facebook from '../icons/facebook';
 import Twitter from '../icons/twitter';
+import Github from '../icons/github';
+import LinkedIn from '../icons/linkedin';
+import Document from '../icons/document';
 import SubscribeModal from '../subsribe/SubscribeOverlay';
 import SiteNavLogo from './SiteNavLogo';
 
@@ -174,6 +177,39 @@ class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
                 rel="noopener noreferrer"
               >
                 <Twitter />
+              </a>
+            )}
+            {config.github && (
+              <a
+                className={`${SocialLink}`}
+                href={config.github}
+                title="Github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </a>
+            )}
+            {config.linkedin && (
+              <a
+                className={`${SocialLink}`}
+                href={config.linkedin}
+                title="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedIn />
+              </a>
+            )}
+            {config.resume && (
+              <a
+                className={`${SocialLink}`}
+                href={config.resume}
+                title="Resume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Document />
               </a>
             )}
           </SocialLinks>

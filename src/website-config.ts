@@ -14,6 +14,9 @@ export interface WebsiteConfig {
   siteUrl: string;
   facebook?: string;
   twitter?: string;
+  github?: string;
+  linkedin?: string;
+  resume?: string;
   /**
    * hide or show all email subscribe boxes
    */
@@ -29,17 +32,20 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Ghost',
-  description: 'The professional publishing platform',
-  coverImage: 'img/blog-cover.jpg',
-  logo: 'img/ghost-logo.png',
+  title: 'Hemanth Devarapalli',
+  description: 'A blog on things and stuff 🤔',
+  coverImage: 'img/noise.png',
+  logo: 'img/hd92_logo.png',
   lang: 'en',
-  siteUrl: 'https://gatsby-casper.netlify.com',
-  facebook: 'https://www.facebook.com/ghost',
-  twitter: 'https://twitter.com/tryghost',
-  showSubscribe: true,
-  mailchimpAction: 'https://twitter.us19.list-manage.com/subscribe/post?u=a89b6987ac248c81b0b7f3a0f&amp;id=7d777b7d75',
-  mailchimpName: 'b_a89b6987ac248c81b0b7f3a0f_7d777b7d75',
+  siteUrl: 'https://blog.hd92.me',
+  facebook: '',
+  twitter: 'https://twitter.com/daemon92',
+  github: 'https://www.github.com/itsmehemant123',
+  linkedin: 'https://www.linkedin.com/in/hemanth-devarapalli',
+  resume: 'pdf/resume-blog.pdf',
+  showSubscribe: false,
+  mailchimpAction: 'https://twitter.us19.list-manage.com/subscribe/post?u=<token>',
+  mailchimpName: '<name>',
 };
 
 export default config;

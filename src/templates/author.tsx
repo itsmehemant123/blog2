@@ -26,6 +26,8 @@ import Helmet from 'react-helmet';
 import config from '../website-config';
 import Website from '../components/icons/website';
 import Twitter from '../components/icons/twitter';
+import LinkedIn from '../components/icons/linkedin';
+import Github from '../components/icons/github';
 
 const HiddenMobile = css`
   @media (max-width: 500px) {
@@ -96,6 +98,8 @@ interface AuthorTemplateProps {
       twitter?: string;
       facebook?: string;
       location?: string;
+      github?: string;
+      linkedin?: string;
       profile_image?: {
         childImageSharp: {
           fluid: any;
@@ -193,6 +197,28 @@ const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
                     <Twitter />
                   </a>
                 )}
+                {author.github && (
+                  <a
+                    className={`${SocialLink} social-link-gh`}
+                    href={`https://github.com/${author.github}`}
+                    title="Github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github />
+                  </a>
+                )}
+                {author.linkedin && (
+                  <a
+                    className={`${SocialLink} social-link-ln`}
+                    href={`https://linkedin.com/in/${author.linkedin}`}
+                    title="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkedIn />
+                  </a>
+                )}
                 {author.facebook && (
                   <a
                     className={`${SocialLink} social-link-fb`}
@@ -253,6 +279,8 @@ export const pageQuery = graphql`
       bio
       facebook
       location
+      github
+      linkedin
       profile_image {
         childImageSharp {
           fluid(maxWidth: 3720) {
