@@ -16,7 +16,7 @@ const PostCardStyles = css`
   overflow: hidden;
   margin: 0 20px 40px;
   min-height: 300px;
-  background: #fff center center;
+  background: #1b1b1b center center;
   background-size: cover;
   border-radius: 5px;
   box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
@@ -55,7 +55,7 @@ const PostCardContentLink = css`
   flex-grow: 1;
   display: block;
   padding: 25px 25px 0;
-  color: ${colors.darkgrey};
+  color: ${colors.whitegrey};
 
   :hover {
     text-decoration: none;
@@ -65,7 +65,7 @@ const PostCardContentLink = css`
 const PostCardTags = styled.span`
   display: block;
   margin-bottom: 4px;
-  color: ${colors.midgrey};
+  color: ${colors.lightgrey};
   font-size: 1.2rem;
   line-height: 1.15em;
   font-weight: 500;
@@ -167,7 +167,7 @@ const StaticAvatar = css`
   margin: 0 -5px;
   width: 34px;
   height: 34px;
-  border: #fff 2px solid;
+  border: ${colors.midgrey} 2px solid;
   border-radius: 100%;
 `;
 
