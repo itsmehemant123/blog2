@@ -18,6 +18,9 @@ export const inner = css`
 export const SiteMain = css`
   z-index: 100;
   flex-grow: 1;
+  background-color: #292929;
+  background-image: url(./noise.png);
+  background-repeat: repeat;
 `;
 
 export const SiteTitle = styled.h1`
