@@ -16,7 +16,7 @@ const AuthorCardName = styled.h4`
   font-size: 2rem;
 
   a {
-    color: ${colors.darkgrey};
+    color: ${colors.whitegrey};
     font-weight: 700;
   }
 
@@ -28,7 +28,7 @@ const AuthorCardName = styled.h4`
 const AuthorCardContent = styled.section`
   p {
     margin: 0;
-    color: ${colors.midgrey};
+    color: ${colors.lightgrey};
     line-height: 1.3em;
   }
 `;

@@ -13,7 +13,10 @@ export const PostFullContent = styled.section`
   font-family: Georgia, serif;
   font-size: 2.2rem;
   line-height: 1.6em;
-  background: #fff;
+  background-color: #292929;
+  background-image: url(./noise.png);
+  background-repeat: repeat;
+  color: ${colors.whitegrey};
 
   @media (max-width: 1170px) {
     padding: 5vw 7vw 0;
@@ -76,7 +79,7 @@ export const PostFullContent = styled.section`
   }
 
   a {
-    color: #000;
+    color: #fff;
     word-break: break-word;
     box-shadow: ${colors.blue} 0 -1px 0 inset;
   }
@@ -89,7 +92,7 @@ export const PostFullContent = styled.section`
   strong,
   em {
     /* color: color(var(--darkgrey) l(-5%)); */
-    color: ${darken('0.05', colors.darkgrey)};
+    color: ${lighten('0.05', colors.whitegrey)};
   }
 
   small {
@@ -161,6 +164,7 @@ export const PostFullContent = styled.section`
     line-height: 1em;
     font-weight: 400 !important;
     background: ${colors.whitegrey};
+    color: ${colors.darkgrey};
     border-radius: 3px;
   }
 
@@ -224,7 +228,7 @@ export const PostFullContent = styled.section`
   h4,
   h5,
   h6 {
-    color: ${setLightness('0.05', colors.darkgrey)};
+    color: ${colors.whitegrey};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
       'Open Sans', 'Helvetica Neue', sans-serif;
   }
@@ -336,8 +340,8 @@ export const PostFullContent = styled.section`
   table td:first-child {
     background-image: linear-gradient(
       to right,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(49, 49, 49, 1) 50%,
+      rgba(49, 49, 49, 0) 100%
     );
     background-size: 20px 100%;
     background-repeat: no-repeat;
@@ -346,8 +350,8 @@ export const PostFullContent = styled.section`
   table td:last-child {
     background-image: linear-gradient(
       to left,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(49, 49, 49, 1) 50%,
+      rgba(49, 49, 49, 0) 100%
     );
     background-position: 100% 0;
     background-size: 20px 100%;
@@ -355,14 +359,14 @@ export const PostFullContent = styled.section`
   }
 
   table th {
-    color: ${colors.darkgrey};
+    color: ${colors.whitegrey};
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.2px;
     text-align: left;
     text-transform: uppercase;
     /* background-color: color(var(--whitegrey) l(+4%)); */
-    background-color: ${lighten('0.04', colors.whitegrey)};
+    background-color: ${lighten('0.04', colors.darkgrey)};
   }
 
   table th,

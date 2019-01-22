@@ -15,6 +15,10 @@ export const inner = css`
   width: 100%;
 `;
 
+export const readNextCustom = css`
+  background-color: #303030;
+`;
+
 export const SiteMain = css`
   z-index: 100;
   flex-grow: 1;

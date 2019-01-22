@@ -19,12 +19,14 @@ import Subscribe from '../components/subsribe/Subscribe';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
-import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
+import { inner, outer, readNextCustom, SiteHeader, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
 const PostTemplate = css`
   .site-main {
-    background #fff;
+    background-color: #292929;
+    background-image: url(./noise.png);
+    background-repeat: repeat;
     padding-bottom: 4vw;
   }
 `;
@@ -77,7 +79,7 @@ const PostFullMetaDate = styled.time`
 
 export const PostFullTitle = styled.h1`
   margin: 0;
-  color: ${setLightness('0.05', colors.darkgrey)};
+  color: ${colors.whitegrey};
   @media (max-width: 500px) {
     font-size: 2.9rem;
   }
@@ -86,7 +88,7 @@ export const PostFullTitle = styled.h1`
 const PostFullImage = styled.figure`
   margin: 0 -10vw -165px;
   height: 800px;
-  background: ${colors.lightgrey} center center;
+  background: ${colors.darkgrey} center center;
   background-size: cover;
   border-radius: 5px;
 
@@ -319,7 +321,7 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
         </main>
 
         {/* Links to Previous/Next posts */}
-        <aside className={`read-next ${outer}`}>
+        <aside className={`read-next ${readNextCustom} ${outer}`}>
           <div className={`${inner}`}>
             <ReadNextFeed>
               {props.data.relatedPosts && (
