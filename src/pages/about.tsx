@@ -12,7 +12,9 @@ import Helmet from 'react-helmet';
 
 const PageTemplate = css`
   .site-main {
-    background #fff;
+    background-color: #292929;
+    background-image: url(./noise.png);
+    background-repeat: repeat;
     padding-bottom: 4vw;
   }
 `;

@@ -34,7 +34,7 @@ export const PostFullContent = styled.section`
     display: block;
     width: 20px;
     height: 200px;
-    background: rgba(39, 44, 49, 0.15);
+    background: rgba(0, 0, 0, 0.55);
     filter: blur(5px);
     transform: rotate(-5deg);
   }
@@ -48,7 +48,7 @@ export const PostFullContent = styled.section`
     display: block;
     width: 20px;
     height: 200px;
-    background: rgba(39, 44, 49, 0.15);
+    background: rgba(0, 0, 0, 0.55);
     filter: blur(5px);
     transform: rotate(5deg);
   }
